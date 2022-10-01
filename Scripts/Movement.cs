@@ -1,4 +1,5 @@
 using UnityEngine;
+// Main program that controls thrust behaviour and rotation
 
 public class Movement : MonoBehaviour
 {
@@ -8,15 +9,15 @@ public class Movement : MonoBehaviour
     public float mainThrust = 1000f;
     public float rotaionThrust = 100f;
     public ParticleSystem mainThrusterParticles;
-    public ParticleSystem leftThrusterParticles;
+    public ParticleSystem leftThrusterParticles;                // This section is declaring and initializing variables
     public ParticleSystem rightThrusterParticles;
     Rigidbody rb;
     AudioSource audioSource;
     public AudioClip mainEngine;
 
-    void Start() 
+    void Start()                                                // Driver Code
     {
-        rb = GetComponent<Rigidbody>();
+        rb = GetComponent<Rigidbody>();                     
         audioSource = GetComponent<AudioSource>();
     }
 
@@ -82,7 +83,7 @@ public class Movement : MonoBehaviour
     void Rotation(float x)
     {
         rb.freezeRotation = true;
-        transform.Rotate(Vector3.forward * Time.deltaTime * x * 1.5f);
+        transform.Rotate(Vector3.forward * Time.deltaTime * x * 1.3f);
         rb.freezeRotation = false;  
     }
 
